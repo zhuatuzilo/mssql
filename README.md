@@ -784,7 +784,7 @@ Type: `string`
 
 #### mssql_ha_read_only_routing_list
 
-A host var it means the list in ag read only router for when the replica is primary role.
+Read only routing list in availability group for when the replica is primary role.
 
 If variable is undefined will not set read only routing list.
 
