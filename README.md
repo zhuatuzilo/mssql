@@ -778,7 +778,7 @@ A host var it means allow connections type when the replica is secondary role.
 
 The available values are: `ALL`, `READ_ONLY`, `NO`.
 
-Default: ALL
+Default: `ALL`
 
 Type: `string`
 
@@ -786,9 +786,11 @@ Type: `string`
 
 A host var it means the list in ag read only router for when the replica is primary role.
 
+If variable is undefined will not set read only routing list.
+
 The example: 'node-4','node-6' or ('node-4','node-6')
 
-Default: no default
+Default: ``
 
 Type: `string
 
