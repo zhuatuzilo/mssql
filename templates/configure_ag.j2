@@ -131,9 +131,9 @@ removing this replica re-create it';
   "setting_value":hostvars[item]['__mssql_ha_seeding_mode']
 },
 "allow_connections":{
-  "sql_setting_name": "SECONDARY_ROLE (ALLOW_CONNECTIONS = ALL)",
+  "sql_setting_name": "SECONDARY_ROLE (ALLOW_CONNECTIONS = " + hostvars[item]['mssql_ha_secondary_role_allow_connections'] + ")",
   "sys_setting_name": "secondary_role_allow_connections_desc",
-  "setting_value": "ALL"
+  "setting_value": hostvars[item]['mssql_ha_secondary_role_allow_connections']
 },
 "read_only_routing_url":{
   "sql_setting_name": "SECONDARY_ROLE (READ_ONLY_ROUTING_URL = " + "N'tcp://" + hostvars[item]['ansible_fqdn'] + ":" + mssql_tcp_port | string + "'" + ")",
@@ -269,7 +269,7 @@ BEGIN
         AVAILABILITY_MODE = {{ hostvars[item]['__mssql_ha_availability_mode'] }},
         FAILOVER_MODE = {{ hostvars[item]['__mssql_ha_failover_mode'] }},
         SEEDING_MODE = {{ hostvars[item]['__mssql_ha_seeding_mode'] }},
-        SECONDARY_ROLE (ALLOW_CONNECTIONS = {{ hostvars[item]['mssql_ha_allow_connections'] }},READ_ONLY_ROUTING_URL = N'tcp://{{ hostvars[item]['ansible_fqdn'] }}:{{ mssql_tcp_port }}')
+        SECONDARY_ROLE (ALLOW_CONNECTIONS = {{ hostvars[item]['mssql_ha_secondary_role_allow_connections'] }},READ_ONLY_ROUTING_URL = N'tcp://{{ hostvars[item]['ansible_fqdn'] }}:{{ mssql_tcp_port }}')
 {%      if hostvars[item]['mssql_ha_replica_type'] %}
         ,PRIMARY_ROLE(READ_ONLY_ROUTING_LIST = ( {{ hostvars[item]['mssql_ha_read_only_routing_list'] }} ))
 {%      endif %}
@@ -281,7 +281,7 @@ BEGIN
         AVAILABILITY_MODE = {{ hostvars[item]['__mssql_ha_availability_mode'] }},
         FAILOVER_MODE = {{ hostvars[item]['__mssql_ha_failover_mode'] }},
         SEEDING_MODE = {{ hostvars[item]['__mssql_ha_seeding_mode'] }},
-        SECONDARY_ROLE (ALLOW_CONNECTIONS = {{ hostvars[item]['mssql_ha_allow_connections'] }},READ_ONLY_ROUTING_URL = N'tcp://{{ hostvars[item]['ansible_fqdn'] }}:{{ mssql_tcp_port }}')
+        SECONDARY_ROLE (ALLOW_CONNECTIONS = {{ hostvars[item]['mssql_ha_secondary_role_allow_connections'] }},READ_ONLY_ROUTING_URL = N'tcp://{{ hostvars[item]['ansible_fqdn'] }}:{{ mssql_tcp_port }}')
 {%      if hostvars[item]['mssql_ha_replica_type'] %}
         ,PRIMARY_ROLE(READ_ONLY_ROUTING_LIST = ( {{ hostvars[item]['mssql_ha_read_only_routing_list'] }} ))
 {%      endif %}
