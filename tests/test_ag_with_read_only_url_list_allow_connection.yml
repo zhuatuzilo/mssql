@@ -4,7 +4,7 @@
 #      ansible_user: root
 #      ansible_ssh_pass: "1q!"
 #      mssql_ha_replica_type: primary
-#      mssql_ha_allow_connections: READ_ONLY
+#      mssql_ha_secondary_role_allow_connections: READ_ONLY
 #      mssql_ha_read_only_routing_list: ('node-5','node-6')
 #      ha_cluster:
 #        node_name: node-4
@@ -15,7 +15,7 @@
 #      ansible_user: root
 #      ansible_ssh_pass: "1q!"
 #      mssql_ha_replica_type: synchronous
-#      mssql_ha_allow_connections: READ_ONLY
+#      mssql_ha_secondary_role_allow_connections: READ_ONLY
 #      mssql_ha_read_only_routing_list: ('node-4','node-6')
 #      ha_cluster:
 #        node_name: node-5
@@ -26,7 +26,7 @@
 #      ansible_user: root
 #      ansible_ssh_pass: "1q!"
 #      mssql_ha_replica_type: synchronous
-#      mssql_ha_allow_connections: READ_ONLY
+#      mssql_ha_secondary_role_allow_connections: READ_ONLY
 #      mssql_ha_read_only_routing_list: ('node-4','node-5')
 #      ha_cluster:
 #        node_name: node-6
