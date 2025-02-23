@@ -792,7 +792,7 @@ The example: 'node-4','node-6' or ('node-4','node-6')
 
 Default: ``
 
-Type: `string
+Type: `string`
 
 #### mssql_ha_endpoint_port
 
