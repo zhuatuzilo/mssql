@@ -772,6 +772,26 @@ Default: no default
 
 Type: `string`
 
+#### mssql_ha_secondary_role_allow_connections
+
+A host var it means allow connections type when replica is secondary role.
+
+The available values are: `ALL`, `READ_ONLY`, `NO`.
+
+Default: ALL
+
+Type: `string`
+
+#### mssql_ha_read_only_routing_list
+
+A host var it means the list in ag read only router for when the replica is primary role.
+
+The example: 'node-4','node-6' or ('node-4','node-6')
+
+Default: no default
+
+Type: `string`
+
 #### mssql_ha_endpoint_port
 
 The TCP port used to replicate data for an Always On availability group.
